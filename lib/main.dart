@@ -3,7 +3,16 @@ import 'package:flutter/services.dart';
 
 void main() {
   // 
+WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+  //    SystemUiOverlay.bottom, //This line is used for showing the bottom bar
+  // ]);
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
 
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarBrightness: Brightness.light,
+  ));
   runApp(const MyApp());
 }
 
@@ -14,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -73,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
